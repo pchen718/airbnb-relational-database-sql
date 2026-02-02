@@ -1,0 +1,10 @@
+-- Calculates total revenue earned by each contractor
+
+SELECT 
+    c.CONTRACTORNAME,
+    SUM(f.PAYMENTAMOUNT) AS TotalEarned
+FROM FIXES f
+JOIN CONTRACTOR c 
+    ON f.CONTRACTORID = c.CONTRACTORID
+GROUP BY c.CONTRACTORID, c.CONTRACTORNAME
+ORDER BY TotalEarned DESC;
